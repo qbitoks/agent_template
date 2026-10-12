@@ -1,2 +1,6 @@
 * text=auto eol=lf
-*.sh text eol=lf
+# Windows scripts need CRLF (e.g. Gradle's gradlew.bat)
+*.bat text eol=crlf
+*.cmd text eol=crlf
+# Append-only log: parallel branches append at the same place; keep both sides instead of conflicting
+.agents/DECISIONS.md merge=union

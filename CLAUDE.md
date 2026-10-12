@@ -1,3 +1,2 @@
 @AGENTS.md
-
-<!-- Claude Code: all rules live in AGENTS.md. Do not add rules here. -->
+<!-- Claude Code entry point: rules live in AGENTS.md next to this file. Do not add rules here. -->

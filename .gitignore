@@ -4,11 +4,25 @@ Thumbs.db
 .idea/
 .vscode/*
 !.vscode/extensions.json
-# Secrets
+
+# Secrets: every line of the ignore-secrets block in .agents/ignore.md (agent-lint checks it)
 .env
 .env.*
 !.env.example
 *.pem
 *.key
-# Local agent state (per-machine)
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.mobileprovision
+local.properties
+secrets.*
+
+# Agent scratch and per-machine state
+.agents/tmp/
 .claude/settings.local.json
+CLAUDE.local.md
+.aider*
+!.aiderignore
+!.aider.conf.yml

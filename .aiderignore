@@ -1,30 +1,56 @@
-# Mirror of .agents/ignore.md — keep in sync (see .agents/playbooks/maintenance.md)
+# GENERATED from .agents/ignore.md by scripts/agent-lint.sh --fix. Edit that file, not this one.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.mobileprovision
+local.properties
+secrets.*
+# dependencies
 node_modules/
 vendor/
 .venv/
 venv/
+__pycache__/
 Pods/
 .gradle/
+.m2/
+.dart_tool/
+# build output
 build/
 dist/
 out/
 target/
+obj/
 .next/
+.nuxt/
 DerivedData/
 coverage/
+# lockfiles
 *.lock
 package-lock.json
 pnpm-lock.yaml
+npm-shrinkwrap.json
+go.sum
+# generated, minified, logs
 *.min.js
-*.map
+*.min.css
+*.js.map
+*.css.map
+*.pb.go
+*_pb2.py
+*.g.dart
+*.freezed.dart
+*_generated.*
 *.log
-*.apk
-*.aab
-*.ipa
-*.jar
-.env
-.env.*
-!.env.example
+# Obsidian internals
 .obsidian/
 .trash/
+# agent history and scratch
 .agents/archive/
+.agents/tmp/

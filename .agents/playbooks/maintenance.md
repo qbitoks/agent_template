@@ -1,17 +1,17 @@
 # Playbook: maintenance (doc garbage collection)
 
-Trigger: `agent-lint` reports over-budget files, docs contradict the code, or every ~20 tasks.
+Trigger: agent-lint reports a file over its limit or prints "maintenance due", or docs contradict the code.
 
-1. Run `sh scripts/agent-lint.sh`; start with its failures.
-2. **Verify against reality.** For every path/command in MAP, STATE, module AGENTS.md: does it still
-   exist and work? Delete or fix stale lines. Code is the truth, docs follow it.
-3. **Deduplicate.** Same fact in two places → keep it in the deepest relevant file, link from others.
-4. **Compress.** Rewrite prose into bullets; drop what a competent engineer infers from the code.
+1. Run `sh scripts/agent-lint.sh`; fix its errors first.
+2. **Verify against reality.** Every path and command in MAP, the Project section, STATE and module docs:
+   does it still exist and work? Fix or delete stale lines. Code is the truth, docs follow it.
+3. **Deduplicate.** Same fact in two places → keep it in the deepest relevant file, link from the others.
+4. **Compress.** Prose → bullets; drop what a competent engineer infers from the code.
 5. **Split, don't grow.**
-   - MAP > 100 lines → per-area `MAP.md` sub-maps linked from the root MAP.
-   - Module AGENTS.md > 60 lines → move details to `<area>/docs/agents/*.md`, link from it.
-   - DECISIONS > 150 lines → move oldest to `.agents/archive/decisions-YYYY.md`.
-6. **Promote / demote.** A rule repeated in 3+ modules → `.agents/rules/`. A root rule relevant to
-   one area only → move it into that area.
-7. Sync ignore files with `.agents/ignore.md` (`.cursorignore`, `.aiderignore`, `.geminiignore`).
-8. Commit: `docs(agents): maintenance`.
+   - MAP over the limit → `<area>/MAP.md` sub-maps, linked from `.agents/MAP.md`.
+   - Module `AGENTS.md` over the limit → details to `<area>/docs/agents/*.md`, linked from it.
+   - DECISIONS over the limit → archive entries that no longer constrain anything; keep foundational ones.
+6. **Promote / demote.** A rule repeated in 3+ modules → `.agents/rules/`. A root rule relevant to one
+   area only → move it into that area.
+7. Run `sh scripts/agent-lint.sh --fix` (regenerates ignore files and `CLAUDE.md` stubs).
+8. Offer the commit with the subject `docs(agents): maintenance`; lint counts commits since that subject.
