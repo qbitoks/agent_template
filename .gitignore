@@ -1,0 +1,14 @@
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Local agent state (per-machine)
+.claude/settings.local.json

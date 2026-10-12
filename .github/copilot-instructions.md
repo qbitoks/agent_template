@@ -1,0 +1,1 @@
+Read and follow `AGENTS.md` in the repo root. All rules live there; do not add rules here.
